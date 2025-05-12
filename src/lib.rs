@@ -20,6 +20,8 @@ pub(crate) use token_set::TokenSet;
 
 use self::tokenizer::Tokenizer;
 
+pub mod edit;
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum NixLanguage {}
 
