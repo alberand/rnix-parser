@@ -20,6 +20,8 @@ pub use rowan::{NodeOrToken, TextRange, TextSize, TokenAtOffset, WalkEvent};
 pub(crate) use token_set::TokenSet;
 pub use tokenizer::Token;
 
+pub mod build;
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub enum NixLanguage {}
 
