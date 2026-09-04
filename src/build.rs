@@ -15,7 +15,6 @@
 //! ```
 
 use crate::ast::{self, make};
-use rowan::ast::AstNode;
 
 pub fn set() -> AttrSetBuilder {
     AttrSetBuilder { entries: Vec::new(), recursive: false }

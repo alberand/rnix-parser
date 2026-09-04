@@ -21,6 +21,7 @@ pub(crate) use token_set::TokenSet;
 pub use tokenizer::Token;
 
 pub mod build;
+pub mod document;
 pub mod edit;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
