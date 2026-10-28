@@ -69,13 +69,13 @@ echo "[hello nix]" | cargo run --quiet --example from-stdin
 
   and run `cargo test`.
 
-  While it's planned to add [fuzzing to `rnix-parser` as well](https://github.com/nix-community/rnix-parser/issues/32),
+  While it's planned to add [fuzzing to `rnix-parser` as well](https://github.com/NixOS/rnix-parser/issues/32),
   `nixpkgs-fmt` has a decent test-suite that would've helped to catch regressions in the past.
 
   __Note:__ API changes are OK (and fixes should be contributed to `nixpkgs-fmt`), behavioral changes
   are not unless explicitly discussed before.
-* Update the [CHANGELOG.md](https://github.com/nix-community/rnix-parser/blob/master/CHANGELOG.md).
-* Bump the version number in [Cargo.toml](https://github.com/nix-community/rnix-parser/blob/master/Cargo.toml) & re-run `cargo build` to refresh the lockfile.
+* Update the [CHANGELOG.md](https://github.com/NixOS/rnix-parser/blob/master/CHANGELOG.md).
+* Bump the version number in [Cargo.toml](https://github.com/NixOS/rnix-parser/blob/master/Cargo.toml) & re-run `cargo build` to refresh the lockfile.
 * Commit & run `nix build`.
 * Tag the release and push everything.
 * As soon as the CI has completed, run `cargo publish`.

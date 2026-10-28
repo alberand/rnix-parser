@@ -521,7 +521,7 @@ impl Tokenizer<'_> {
             fst @ '0'..='9' => {
                 // Due to nix's behavior on leading 0's we know immediately
                 // That a '0' followed by some other number character MUST tokenize into an INT.
-                // More background on this: https://github.com/nix-community/rnix-parser/issues/157
+                // More background on this: https://github.com/NixOS/rnix-parser/issues/157
                 if fst == '0' && self.peek() != Some('.') {
                     // In that case just consume the remaining number characters to fill the TOKEN_INTEGER
                     self.consume(|c| c.is_ascii_digit());
