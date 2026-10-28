@@ -78,6 +78,23 @@
           LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
         };
 
+        # `nix develop .#scripts` - for the GitHub Script code in .github/scripts
+        devShells.scripts = pkgs.mkShellNoCC {
+          packages = [
+            pkgs.nodejs
+            pkgs.importNpmLock.hooks.linkNodeModulesHook
+          ];
+
+          # Needs to be the real, writable dir
+          npmRoot = ".github/scripts";
+
+          npmDeps = pkgs.importNpmLock.buildNodeModules {
+            inherit (pkgs) nodejs;
+            # Needs to be an absolute path
+            npmRoot = ./.github/scripts;
+          };
+        };
+
         # Backwards compat
         devShell = devShells.default;
 

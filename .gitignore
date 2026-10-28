@@ -5,3 +5,6 @@
 # Nix build outputs
 /result
 /result-*
+
+# Linked by `nix develop .#scripts`
+node_modules

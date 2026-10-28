@@ -60,3 +60,26 @@ jobs:
 
       - name: Run Clippy
         run: cargo clippy --all-targets -- -D warnings
+
+  scripts:
+    name: scripts
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: .github/scripts
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Install Node.js
+        uses: actions/setup-node@v7
+        with:
+          # Matches the node24 runtime of actions/github-script
+          node-version: 24
+
+      # .npmrc sets package-lock-only for local use, where `nix develop .#scripts` provides node_modules
+      - name: Install dependencies
+        run: npm ci --package-lock-only=false
+
+      - name: Typecheck and test
+        run: npm test

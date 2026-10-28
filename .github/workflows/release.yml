@@ -20,6 +20,13 @@ jobs:
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
 
+      - name: Check the release
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const { checkRelease } = await import(`${process.env.GITHUB_WORKSPACE}/.github/scripts/release.ts`);
+            await checkRelease({ github, context, branch: 'master', crate: 'rnix' });
+
       - name: Authenticate with crates.io
         id: auth
         uses: rust-lang/crates-io-auth-action@v1
