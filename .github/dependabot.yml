@@ -4,3 +4,23 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+
+  - package-ecosystem: "cargo"
+    directories:
+      - "/"
+      - "/fuzz"
+    schedule:
+      interval: "weekly"
+    groups:
+      cargo:
+        update-types:
+          - "minor"
+          - "patch"
+        # rnix re-exports rowan's types, so a rowan bump is a breaking change
+        # for rnix and gets a PR of its own.
+        exclude-patterns:
+          - "rowan"
