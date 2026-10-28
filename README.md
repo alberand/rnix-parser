@@ -45,7 +45,6 @@ echo "[hello nix]" | cargo run --quiet --example from-stdin
 
 ## Release Checklist
 
-- [ ] CI is green on `master`.
 - [ ] In [CHANGELOG.md](CHANGELOG.md), add a `## [vX.Y.Z] - YYYY-MM-DD` heading below
       `## [Unreleased]`, add a `[vX.Y.Z]` compare link at the bottom, and point the `[Unreleased]`
       link at `vX.Y.Z...master`.
@@ -54,8 +53,10 @@ echo "[hello nix]" | cargo run --quiet --example from-stdin
 - [ ] Run `cargo test`, `nix build` and `cargo publish --dry-run`.
 - [ ] Commit as `chore: release vX.Y.Z` on a branch, open a PR, and add it to the merge queue.
 - [ ] Once it merges, tag the release commit `vX.Y.Z` and push the tag.
-- [ ] Check that the `release` workflow the tag started has published to crates.io.
-- [ ] Create a GitHub release for the tag, using the changelog section as the notes.
+- [ ] Approve the `release` workflow run the tag started. It checks that the tag is on `master`
+      and matches `Cargo.toml`, publishes to crates.io, and creates the GitHub release from the
+      changelog section.
+- [ ] Check the new version on crates.io and the GitHub release.
 
 # RIP jd91mzm2
 
