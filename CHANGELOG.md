@@ -12,7 +12,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 * **Update `rowan` to 0.17.** `rnix` re-exports `rowan` types (`SyntaxNode`, `TextRange`, etc.),
   so downstream crates must move to `rowan` 0.17 as well
-  ([#189](https://github.com/nix-community/rnix-parser/pull/189),
+  ([#189](https://github.com/NixOS/rnix-parser/pull/189),
   from [@mdaniels5757](https://github.com/mdaniels5757)).
 
 * **Minimum supported Rust version is now 1.88.** The crate moved to the 2024 edition and uses
@@ -24,13 +24,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   underscore presence in a single pass instead of collecting the prefix into a `String`, and
   speed up `Str::normalized_parts` by iterating string parts directly instead of collecting
   them into an intermediate `Vec`
-  ([#188](https://github.com/nix-community/rnix-parser/pull/188),
+  ([#188](https://github.com/NixOS/rnix-parser/pull/188),
   from [@NotAShelf](https://github.com/NotAShelf)).
 
 ### Fixed
 
 * Fix parser mistakenly allowing empty dynamic attribute selects such as `{}.${}`
-  ([#186](https://github.com/nix-community/rnix-parser/pull/186),
+  ([#186](https://github.com/NixOS/rnix-parser/pull/186),
   from [@Starnick4444](https://github.com/Starnick4444)).
 
 ## [v0.14.0] - 2026-02-16
@@ -38,7 +38,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Fixed
 
 * Fix absolute path interpolation starting with `/${` failing to parse
-  ([#182](https://github.com/nix-community/rnix-parser/issues/182),
+  ([#182](https://github.com/NixOS/rnix-parser/issues/182),
   from [@imxyy1soope1](https://github.com/imxyy1soope1)).
 
 ### Breaking Changes
@@ -124,7 +124,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [v0.10.2] - 2022-06-14
 
-* Correctly parse every possible case of path-interpolation in Nix code ([#85](https://github.com/nix-community/rnix-parser/issues/85)).
+* Correctly parse every possible case of path-interpolation in Nix code ([#85](https://github.com/NixOS/rnix-parser/issues/85)).
 
   (from [@ncfavier](https://github.com/ncfavier)).
 
@@ -206,13 +206,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 * Fixed a memory leak while parsing `inherit`-expressions with invalid syntax (from [@Ma27](https://github.com/Ma27/)).
 
-[Unreleased]: https://github.com/nix-community/rnix-parser/compare/v0.15.0...master
-[v0.15.0]: https://github.com/nix-community/rnix-parser/compare/v0.14.0...v0.15.0
-[v0.14.0]: https://github.com/nix-community/rnix-parser/compare/v0.13.0...v0.14.0
-[v0.13.0]: https://github.com/nix-community/rnix-parser/compare/v0.12.0...v0.13.0
-[v0.12.0]: https://github.com/nix-community/rnix-parser/compare/v0.11.0...v0.12.0
-[v0.11.0]: https://github.com/nix-community/rnix-parser/compare/v0.10.2...v0.11.0
-[v0.10.2]: https://github.com/nix-community/rnix-parser/compare/v0.10.1...v0.10.2
-[v0.10.1]: https://github.com/nix-community/rnix-parser/compare/v0.10.0...v0.10.1
-[v0.10.0]: https://github.com/nix-community/rnix-parser/compare/v0.9.1...v0.10.0
-[v0.9.1]: https://github.com/nix-community/rnix-parser/compare/v0.9.0...v0.9.1
+[Unreleased]: https://github.com/NixOS/rnix-parser/compare/v0.15.0...master
+[v0.15.0]: https://github.com/NixOS/rnix-parser/compare/v0.14.0...v0.15.0
+[v0.14.0]: https://github.com/NixOS/rnix-parser/compare/v0.13.0...v0.14.0
+[v0.13.0]: https://github.com/NixOS/rnix-parser/compare/v0.12.0...v0.13.0
+[v0.12.0]: https://github.com/NixOS/rnix-parser/compare/v0.11.0...v0.12.0
+[v0.11.0]: https://github.com/NixOS/rnix-parser/compare/v0.10.2...v0.11.0
+[v0.10.2]: https://github.com/NixOS/rnix-parser/compare/v0.10.1...v0.10.2
+[v0.10.1]: https://github.com/NixOS/rnix-parser/compare/v0.10.0...v0.10.1
+[v0.10.0]: https://github.com/NixOS/rnix-parser/compare/v0.9.1...v0.10.0
+[v0.9.1]: https://github.com/NixOS/rnix-parser/compare/v0.9.0...v0.9.1
