@@ -59,4 +59,4 @@ jobs:
           components: clippy
 
       - name: Run Clippy
-        run: cargo clippy
+        run: cargo clippy --all-targets -- -D warnings
