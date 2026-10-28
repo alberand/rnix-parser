@@ -54,7 +54,7 @@ echo "[hello nix]" | cargo run --quiet --example from-stdin
 - [ ] Run `cargo test`, `nix build` and `cargo publish --dry-run`.
 - [ ] Commit as `chore: release vX.Y.Z` on a branch, open a PR, and add it to the merge queue.
 - [ ] Once it merges, tag the release commit `vX.Y.Z` and push the tag.
-- [ ] Run `cargo publish` from the tag.
+- [ ] Check that the `release` workflow the tag started has published to crates.io.
 - [ ] Create a GitHub release for the tag, using the changelog section as the notes.
 
 # RIP jd91mzm2
