@@ -45,40 +45,17 @@ echo "[hello nix]" | cargo run --quiet --example from-stdin
 
 ## Release Checklist
 
-* Ensure that all PRs that were scheduled for the release are merged (or optionally move
-  them to another milestone).
-* Close the milestone for the release (if any).
-* Run `cargo test` on `master` (or the branch to release from) with all changes being pulled in.
-* Apply the following patch to [nixpkgs-fmt](https://github.com/nix-community/nixpkgs-fmt):
-  ```diff
-  diff --git a/Cargo.toml b/Cargo.toml
-  index 0891350..edad471 100644
-  --- a/Cargo.toml
-  +++ b/Cargo.toml
-  @@ -13,6 +13,9 @@ repository = "https://github.com/nix-community/nixpkgs-fmt"
-   [workspace]
-   members = [ "./wasm" ]
-   
-  +[patch.crates-io]
-  +rnix = { path = "/home/ma27/Projects/rnix-parser" }
-  +
-   [dependencies]
-   rnix = "0.9.0"
-   smol_str = "0.1.17"
-  ```
-
-  and run `cargo test`.
-
-  While it's planned to add [fuzzing to `rnix-parser` as well](https://github.com/NixOS/rnix-parser/issues/32),
-  `nixpkgs-fmt` has a decent test-suite that would've helped to catch regressions in the past.
-
-  __Note:__ API changes are OK (and fixes should be contributed to `nixpkgs-fmt`), behavioral changes
-  are not unless explicitly discussed before.
-* Update the [CHANGELOG.md](https://github.com/NixOS/rnix-parser/blob/master/CHANGELOG.md).
-* Bump the version number in [Cargo.toml](https://github.com/NixOS/rnix-parser/blob/master/Cargo.toml) & re-run `cargo build` to refresh the lockfile.
-* Commit & run `nix build`.
-* Tag the release and push everything.
-* As soon as the CI has completed, run `cargo publish`.
+- [ ] CI is green on `master`.
+- [ ] In [CHANGELOG.md](CHANGELOG.md), add a `## [vX.Y.Z] - YYYY-MM-DD` heading below
+      `## [Unreleased]`, add a `[vX.Y.Z]` compare link at the bottom, and point the `[Unreleased]`
+      link at `vX.Y.Z...master`.
+- [ ] Bump `version` in [Cargo.toml](Cargo.toml).
+- [ ] Refresh the lockfiles: `cargo update -w && cargo update -w --manifest-path fuzz/Cargo.toml`.
+- [ ] Run `cargo test`, `nix build` and `cargo publish --dry-run`.
+- [ ] Commit as `chore: release vX.Y.Z` and tag it `vX.Y.Z`.
+- [ ] Push the commit and the tag.
+- [ ] Once CI passes, run `cargo publish`.
+- [ ] Create a GitHub release for the tag, using the changelog section as the notes.
 
 # RIP jd91mzm2
 
