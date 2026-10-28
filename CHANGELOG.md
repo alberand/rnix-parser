@@ -6,6 +6,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+## [v0.15.1] - 2026-10-28
+
+### Changed
+
+* The repository moved from `nix-community` to `NixOS` and now lives at
+  <https://github.com/NixOS/rnix-parser>; the crate's `repository` link points there
+  ([NixOS/org#300](https://github.com/NixOS/org/issues/300),
+  [#192](https://github.com/NixOS/rnix-parser/pull/192)).
+
+* The published crate now contains only the library, its tests and documentation. The
+  benchmark input and repository tooling are no longer shipped, which shrinks the download
+  from 222 KiB to 63 KiB ([#196](https://github.com/NixOS/rnix-parser/pull/196)).
+
 ## [v0.15.0] - 2026-10-22
 
 ### Breaking Changes
@@ -206,7 +219,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 * Fixed a memory leak while parsing `inherit`-expressions with invalid syntax (from [@Ma27](https://github.com/Ma27/)).
 
-[Unreleased]: https://github.com/NixOS/rnix-parser/compare/v0.15.0...master
+[Unreleased]: https://github.com/NixOS/rnix-parser/compare/v0.15.1...master
+[v0.15.1]: https://github.com/NixOS/rnix-parser/compare/v0.15.0...v0.15.1
 [v0.15.0]: https://github.com/NixOS/rnix-parser/compare/v0.14.0...v0.15.0
 [v0.14.0]: https://github.com/NixOS/rnix-parser/compare/v0.13.0...v0.14.0
 [v0.13.0]: https://github.com/NixOS/rnix-parser/compare/v0.12.0...v0.13.0
