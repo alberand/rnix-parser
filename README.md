@@ -52,9 +52,9 @@ echo "[hello nix]" | cargo run --quiet --example from-stdin
 - [ ] Bump `version` in [Cargo.toml](Cargo.toml).
 - [ ] Refresh the lockfiles: `cargo update -w && cargo update -w --manifest-path fuzz/Cargo.toml`.
 - [ ] Run `cargo test`, `nix build` and `cargo publish --dry-run`.
-- [ ] Commit as `chore: release vX.Y.Z` and tag it `vX.Y.Z`.
-- [ ] Push the commit and the tag.
-- [ ] Once CI passes, run `cargo publish`.
+- [ ] Commit as `chore: release vX.Y.Z` on a branch, open a PR, and add it to the merge queue.
+- [ ] Once it merges, tag the release commit `vX.Y.Z` and push the tag.
+- [ ] Run `cargo publish` from the tag.
 - [ ] Create a GitHub release for the tag, using the changelog section as the notes.
 
 # RIP jd91mzm2
